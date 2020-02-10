@@ -28,7 +28,7 @@ def draw_line( x0, y0, x1, y1, screen, color):
                 d += 2 * A
             y += 1
             d += 2 * B
-    if (A >= -1 * B):
+    if (A <= -1 * B):
         B *= -1
         d = A - 2 * B
         while y >= y1:
@@ -38,14 +38,12 @@ def draw_line( x0, y0, x1, y1, screen, color):
                 d += 2 * A
             y -= 1
             d -= 2 * B
-    if (A > 0 and A < -1 * B):
-        print("hello")
-        print(x0,y0)
+    if (A <= 0 and A > -1 * B):
         B *= -1
         d = 2 * A - B
         while x <= x1:
             plot(screen, color, x, y)
-            if d > 0:
+            if d < 0:
                 y -= 1
                 d -= 2 * B
             x += 1
